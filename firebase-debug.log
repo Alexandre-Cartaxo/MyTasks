@@ -1,0 +1,105 @@
+[debug] [2025-06-17T21:33:47.643Z] ----------------------------------------------------------------------
+[debug] [2025-06-17T21:33:47.645Z] Command:       /home/cartaxo/.nvm/versions/node/v20.17.0/bin/node /home/cartaxo/.nvm/versions/node/v20.17.0/bin/firebase init
+[debug] [2025-06-17T21:33:47.645Z] CLI Version:   14.6.0
+[debug] [2025-06-17T21:33:47.645Z] Platform:      linux
+[debug] [2025-06-17T21:33:47.645Z] Node Version:  v20.17.0
+[debug] [2025-06-17T21:33:47.645Z] Time:          Tue Jun 17 2025 18:33:47 GMT-0300 (Brasilia Standard Time)
+[debug] [2025-06-17T21:33:47.646Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-17T21:33:47.650Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-17T21:33:47.650Z] > authorizing via signed-in user (lawliet.keehl144@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/cartaxo/dev/myTasks
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-06-17T21:38:55.244Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:38:55.245Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:38:55.255Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-06-17T21:38:56.191Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-06-17T21:38:56.191Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project mytaks-e6fc3 (Mytaks) 
+[info] 
+=== Hosting Setup
+[debug] [2025-06-17T21:39:00.040Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:39:00.040Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:39:00.040Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mytaks-e6fc3 [none]
+[debug] [2025-06-17T21:39:00.512Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mytaks-e6fc3 200
+[debug] [2025-06-17T21:39:00.512Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mytaks-e6fc3 {"projectId":"mytaks-e6fc3","projectNumber":"820691613608","displayName":"Mytaks","name":"projects/mytaks-e6fc3","resources":{"hostingSite":"mytaks-e6fc3","realtimeDatabaseInstance":"mytaks-e6fc3-default-rtdb"},"state":"ACTIVE","etag":"1_d5105963-c408-4d0d-90ce-a0d2179e230e"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2025-06-17T21:44:44.515Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (/home/cartaxo/.nvm/versions/node/v20.17.0/lib/node_modules/firebase-tools/node_modules/@inquirer/core/dist/commonjs/lib/create-prompt.js:101:37)
+    at Interface.emit (node:events:519:28)
+    at Interface.emit (node:domain:488:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1126:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:265:20)
+    at ReadStream.emit (node:events:531:35)
+    at ReadStream.emit (node:domain:488:12)
+    at emitKeys (node:internal/readline/utils:371:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-06-17T21:44:56.013Z] ----------------------------------------------------------------------
+[debug] [2025-06-17T21:44:56.015Z] Command:       /home/cartaxo/.nvm/versions/node/v20.17.0/bin/node /home/cartaxo/.nvm/versions/node/v20.17.0/bin/firebase init
+[debug] [2025-06-17T21:44:56.016Z] CLI Version:   14.6.0
+[debug] [2025-06-17T21:44:56.016Z] Platform:      linux
+[debug] [2025-06-17T21:44:56.016Z] Node Version:  v20.17.0
+[debug] [2025-06-17T21:44:56.016Z] Time:          Tue Jun 17 2025 18:44:56 GMT-0300 (Brasilia Standard Time)
+[debug] [2025-06-17T21:44:56.016Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-17T21:44:56.021Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-17T21:44:56.021Z] > authorizing via signed-in user (lawliet.keehl144@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/cartaxo/dev/myTasks
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-06-17T21:45:43.248Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:45:43.249Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:45:43.252Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-06-17T21:45:44.172Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-06-17T21:45:44.172Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project mytaks-e6fc3 (Mytaks) 
+[info] 
+=== Hosting Setup
+[debug] [2025-06-17T21:45:45.149Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:45:45.149Z] Checked if tokens are valid: true, expires at: 1750198748168
+[debug] [2025-06-17T21:45:45.150Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mytaks-e6fc3 [none]
+[debug] [2025-06-17T21:45:45.615Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mytaks-e6fc3 200
+[debug] [2025-06-17T21:45:45.615Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mytaks-e6fc3 {"projectId":"mytaks-e6fc3","projectNumber":"820691613608","displayName":"Mytaks","name":"projects/mytaks-e6fc3","resources":{"hostingSite":"mytaks-e6fc3","realtimeDatabaseInstance":"mytaks-e6fc3-default-rtdb"},"state":"ACTIVE","etag":"1_d5105963-c408-4d0d-90ce-a0d2179e230e"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

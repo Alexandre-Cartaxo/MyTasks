@@ -1,103 +1,133 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>MyTasks</title>
-        <link rel="shortcut icon" href="img/myTasksFavicon.png" type="image/x-icon">
-        <link rel="stylesheet" href="css/styles.css">
-      </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>MyTasks</title>
+  <link rel="shortcut icon" href="img/myTasksFavicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 <body>
+  <!-- Tela de carregamento -->
+  <div id="loading" class="center" style="display: none;">
+    <img src="img/loading.gif" alt="Carregando..." />
+  </div>
 
   <div id="app">
-    <!--Logotipo do TodoList-->
+    <!-- Logo -->
     <div class="center">
-      <img id="logo" src="img/myTasks.png">
+      <img id="logo" src="img/myTasks.png" alt="Logo MyTasks" />
     </div>
 
+    <!-- Área para adicionar tarefas (visível para usuários autenticados) -->
+    <div id="addTarefa" class="center startHidden">
+      <form id="todoForm">
+        <h3 id="todoFormTitle">Adicionar tarefa:</h3>
+        <label for="name">Tarefa: </label>
+        <input type="text" id="name" placeholder="Digite a tarefa" required maxlength="30" />
+        <button type="submit" id="submitTodoForm">Adicionar tarefa</button>
+      </form>
+      <hr />
+    </div>
 
-    <!--Conteúdo destinado para usuários não autenticados-->
+    <!-- Lista de tarefas e busca -->
+    <div id="todoList" class="startHidden">
+      <h3 id="todoCount">Carregando tarefas...</h3>
+      <div id="buscas" class="center">
+        <label for="search">Buscar: </label>
+        <input type="text" placeholder="Buscar" id="search" />
+      </div>
+      <ul id="ulTodoList"></ul>
+    </div>
+
+    <!-- Área de autenticação para usuários não logados -->
     <div id="auth" class="center">
-      <!--Formulário de autenticação-->
       <form id="authForm">
         <h3 id="authFormTitle">Acessar sua conta</h3>
-
-        <br>
-
+        <br />
         <p>
-        <label for="email">E-mail: </label>
-        <input type="email" placeholder="E-mail" id="email">
+          <label for="email">E-mail: </label>
+          <input type="email" id="email" name="email" placeholder="E-mail" required />
         </p>
-
         <p>
-        <label for="password">Senha: </label>
-        <input type="password" placeholder="Senha" id="password">
+          <label for="password">Senha: </label>
+          <input type="password" id="password" name="password" placeholder="Senha" required />
         </p>
-
         <button type="submit" id="submitAuthForm">Acessar</button>
       </form>
 
-    </br>
-      <!--Possibilita a redefiniação de senha-->
+      <br />
+
       <p id="passwordReset">
         Esqueceu a senha?
-        <button class="alternative" onclick="sendPasswordResetEmail()">Redefinir senha</button>
+        <button class="alternative" type="button" onclick="sendPasswordResetEmail()">Redefinir senha</button>
       </p>
 
-      <!--Alternar o fomulário de autenticação para o cadastro de novas contas-->
       <p id="register">
         Não possui uma conta?
-        <button onclick="toggleToRegister()" class="alternative">Cadastrar</button>
+        <button type="button" onclick="toggleToRegister()" class="alternative">Cadastrar</button>
       </p>
 
-      <!--Alternar o fomulário de autenticação para o acesso de contas já existentes-->
       <p id="access" class="startHidden">
         Já possui uma conta?
-        <button onclick="toggleToAccess()" class="alternative">Acesse</button>
+        <button type="button" onclick="toggleToAccess()" class="alternative">Acesse</button>
       </p>
 
-      <!--Outros provedores de autenticação-->
-      <br>
+      <br />
+
       <p>
-        Ou acesse usando:<br>
-        <img class="icon" src="img/google.png" alt="Autenticação pelo Google" onclick="signInWithGoogle()">
-        <img class="icon" src="img/github.png" alt="Autenticação pelo GitHub" onclick="signInWithGitHub()">
-        <img class="icon" src="img/facebook.png" alt="Autenticação pelo Facebook" onclick="signInWithFacebook()">
+        Ou acesse usando:<br />
+        <img
+          class="icon"
+          src="img/google.png"
+          alt="Autenticação pelo Google"
+          onclick="signInWithGoogle()"
+          role="button"
+          tabindex="0"
+        />
+        <img
+          class="icon"
+          src="img/github.png"
+          alt="Autenticação pelo GitHub"
+          onclick="signInWithGitHub()"
+          role="button"
+          tabindex="0"
+        />
+        <img
+          class="icon"
+          src="img/facebook.png"
+          alt="Autenticação pelo Facebook"
+          onclick="signInWithFacebook()"
+          role="button"
+          tabindex="0"
+        />
       </p>
-      <!--Fim dos outros provedores de autenticação-->
     </div>
 
-    <!--Conteúdo destinado para usuários autenticados-->
-    <div id="userContent" class="startHidden">
-      <hr>
+    <!-- Conteúdo para usuários autenticados -->
+     <div id="userContent" class="startHidden">
+      <hr />
       <div id="userInfo" class="center">
-        <img id="userImg">
+        <img id="userImg" alt="Foto do usuário" />
         <p id="userName"></p>
         <p id="userEmail"></p>
         <p id="emailVerified"></p>
-        
+
         <div id="sendEmailVerificationDiv">
-          <button class="alternative" onclick="sendEmailVerification()">Verificar e-mail</button>
+          <button class="alternative" type="button" onclick="sendEmailVerification()">Verificar e-mail</button>
         </div>
 
-        <br>
-        <button class="alternative" onclick="updateUserName()">Atualizar nome</button>
-        <button class="alternative" onclick="signOut()">Sair</button>
-        <button class="danger" onclick="deleteUserAccount()">Excluir conta</button>
+        <br />
+        <button class="alternative" type="button" onclick="updateUserName()">Atualizar nome</button>
+        <button class="alternative" type="button" onclick="signOut()">Sair</button>
+        <button class="danger" type="button" onclick="deleteUserAccount()">Excluir conta</button>
       </div>
     </div>
-    <!--Fim do conteúdo destinado para usuários autenticados-->
   </div>
 
-  <!--Recursos do Firebase-->
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
-
-  
-  <!--Nossa programação em JavaScript-->
-  <script src="js/firebase.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/todo.js"></script>
+  <!-- Scripts -->
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/utils.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/todo.js"></script>
 </body>
 </html>
