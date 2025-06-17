@@ -5,7 +5,7 @@ import {
   push,
   onValue,
   remove,
-  update // ✅ Corrigido: importação do update
+  update
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { showError } from './utils.js';
@@ -18,7 +18,7 @@ const todoCount = document.getElementById('todoCount');
 const buscas = document.getElementById('buscas');
 const searchInput = document.getElementById('search');
 
-let allTasksSnapshot = null; // 🔍 Armazena snapshot completo para busca local
+let allTasksSnapshot = null; // Armazena snapshot completo para busca local
 
 todoForm.onsubmit = function(event) {
   event.preventDefault();
@@ -48,7 +48,7 @@ todoForm.onsubmit = function(event) {
   }
 };
 
-// 🔍 Filtro de tarefas por nome (sem acessar o banco novamente)
+// Filtro de tarefas por nome (sem acessar o banco novamente)
 searchInput.addEventListener('input', () => {
   if (allTasksSnapshot) {
     const termo = searchInput.value.trim().toLowerCase();
@@ -86,9 +86,11 @@ function fillTodoList(data) {
 
   tarefas.forEach(({ key, value }) => {
     const li = document.createElement('li');
+
+    // span com data-key ao invés de id
     const spanLi = document.createElement('span');
     spanLi.textContent = value.name;
-    spanLi.id = key;
+    spanLi.setAttribute('data-key', key);
     li.appendChild(spanLi);
 
     const liRemoveBtn = document.createElement('button');
@@ -110,7 +112,8 @@ function fillTodoList(data) {
 }
 
 function removeTodo(key) {
-  const selectedItem = document.getElementById(key);
+  // busca o span pelo data-key
+  const selectedItem = ulTodoList.querySelector(`span[data-key="${key}"]`);
   const confirmation = confirm(`Realmente deseja remover a tarefa "${selectedItem?.innerHTML}"?`);
   if (!confirmation) return;
 
@@ -128,7 +131,8 @@ function removeTodo(key) {
 }
 
 function updateTodo(key) {
-  const selectedItem = document.getElementById(key);
+  // busca o span pelo data-key
+  const selectedItem = ulTodoList.querySelector(`span[data-key="${key}"]`);
   const newTodoName = prompt(`Escolha um novo nome para a tarefa "${selectedItem?.innerHTML}".`, selectedItem?.innerHTML);
   if (!newTodoName || newTodoName.trim() === '') {
     alert('O nome da tarefa não pode ser em branco para atualizar a tarefa');
@@ -158,7 +162,7 @@ auth.onAuthStateChanged(user => {
   if (user) {
     const userTodosRef = ref(database, 'users/' + user.uid);
     onValue(userTodosRef, snapshot => {
-      allTasksSnapshot = snapshot; // 🔍 Salva snapshot para busca local
+      allTasksSnapshot = snapshot; // Salva snapshot para busca local
       fillTodoList(snapshot);
     });
   } else {
